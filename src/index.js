@@ -3,16 +3,22 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
+// rootReducer from ./reducers
 import rootReducer from "./reducers";
 // needed dependancies
-// applyMiddleware from redux
-// thunk from redux-thunk
+
+// applyMiddleware from redux X
+import { createStore, applyMiddleware } from "redux";
+
 // logger from redux-logger
-// rootReducer from ./reducers
+import logger from 'redux-logger'
+
+// thunk from redux-thunk
+import thunk from 'redux-thunk'
 
 const store = createStore(
-  rootReducer
+  rootReducer,
+  applyMiddleware(logger, thunk)
   /* applyMiddleware goes here */
 );
 
