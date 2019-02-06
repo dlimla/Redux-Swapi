@@ -14,25 +14,18 @@ export const ERROR = "ERROR";
 export const LOADING = "LOADING";
 
 
-export function fetchCharacters(characters){
-    return (dispatch) => {
-        dispatch({ type:LOADING })
-        console.log("HI FROM AXIOS")
-    axios
-        .get(`https://swapi.co/api/people/`)
-        .then(response => {
-            dispatch({
-                type: SUCCESS,
-                payload: response.data
-            })
-        })
-        .catch(err => {
-            dispatch({
-                type: ERROR,
-                payload: "NO CHARACTERS"
-            })
-        })
-        
-    }
-    
-}
+export const fetchData = () => dispatch => {
+    console.log('I am running the fetch request')
+    dispatch({ type: LOADING})
+    axios.get('https://swapi.co/api/people/')
+        .then(res =>  dispatch({ type: SUCCESS, payload: res.data.results }))
+        .catch(err => dispatch({ type: ERROR, payload: err }))
+};
+
+
+
+
+
+
+
+// dispatch({ type: SUCCESS, payload: res.results })

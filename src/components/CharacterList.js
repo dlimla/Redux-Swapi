@@ -2,11 +2,15 @@ import React from "react";
 
 import Character from "./Character";
 
+// import { fetchCharacters } from '../actions'
+
+
 import { connect } from 'react-redux';
 
 const CharacterList = props => {
-  console.log("HI FROM CHARACTERLIST!")
-  console.log(this.state.characters)
+  // console.log("HI FROM CHARACTERLIST!")
+  // console.log(props)
+  
   return (
     <div>HI</div>
     // <ul>
@@ -24,4 +28,4 @@ const mstp = state => {
   }
 }
 
-export default connect(mstp)(CharacterList);
+export default CharacterList;
